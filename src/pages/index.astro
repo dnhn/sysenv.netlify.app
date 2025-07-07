@@ -25,14 +25,53 @@ a {
 table {
   width: 100%;
 
+  caption {
+    padding-block: 2rem;
+    padding-inline: 1rem;
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-wrap: pretty;
+    }
+  }
+
   tbody {
     font-family: monospace;
+  }
+
+  tfoot {
+    td {
+      padding-block: 2rem;
+      padding-inline: 1rem;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-size: .875rem;
+        font-weight: 700;
+      }
+    }
   }
 }
 </style>
 </head>
 <body>
 <table>
+  <caption>
+    <h1>
+      <a
+        href="https://docs.netlify.com/configure-builds/environment-variables/#read-only-variables"
+        target="_blank"
+      >
+        Netlify’s environment variables
+      </a>
+    </h1>
+  </caption>
   <tbody>
     <tr>
       <th>NODE_VERSION</th>
@@ -127,6 +166,16 @@ table {
       <td>{process.env.INCOMING_HOOK_BODY}</td>
     </tr>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colSpan={2}>
+        <div>
+          <a href="https://nhan.dev" target="_blank">nhan.dev</a>
+          <a href="https://github.com/dnhn/sysenv.netlify.app" target="_blank">GitHub</a>
+        </div>
+      </td>
+    </tr>
+  </tfoot>
 </table>
 </body>
 </html>
