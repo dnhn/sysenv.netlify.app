@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+  outline-color: currentColor;
+  outline-offset: 2px;
+
+  &:focus, &:focus-visible {
+    outline-width: 2px;
+  }
+}
+
 html {
   font-family: sans-serif;
 }
@@ -9,6 +19,12 @@ body {
 
 a {
   color: currentColor;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
 }
 
 table {
