@@ -91,9 +91,17 @@ th, td {
     border-width: 1px;
     border-style: solid;
   }
+
+  @media (prefers-color-scheme: dark) {
+    border-color: #333;
+  }
 }
 
 th {
   background-color: #eee;
   text-align: left;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #222;
+  }
 }
