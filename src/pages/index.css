@@ -29,6 +29,7 @@ a {
 
 table {
   width: 100%;
+  border-collapse: collapse;
 
   caption {
     padding-block: 2rem;
@@ -45,6 +46,17 @@ table {
 
   tbody {
     font-family: monospace;
+
+    th, td {
+      padding-block: .5rem;
+      padding-inline: 1rem;
+      font-size: .75rem;
+    }
+
+    td {
+      word-break: break-all;
+      font-weight: 300;
+    }
   }
 
   tfoot {
@@ -62,4 +74,26 @@ table {
       }
     }
   }
+}
+
+tr {
+  flex-direction: column;
+
+  @media (max-width: 39.9375rem) {
+    display: flex;
+  }
+}
+
+th, td {
+  border-color: #ddd;
+
+  @media (min-width: 40rem) {
+    border-width: 1px;
+    border-style: solid;
+  }
+}
+
+th {
+  background-color: #eee;
+  text-align: left;
 }
