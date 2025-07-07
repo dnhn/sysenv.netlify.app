@@ -57,6 +57,10 @@ table {
       word-break: break-all;
       font-weight: 300;
     }
+
+    a {
+      font-weight: 700;
+    }
   }
 
   tfoot {
