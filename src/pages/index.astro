@@ -1,5 +1,31 @@
 ---
 import './index.css'
+
+const ENV = [
+  { name: 'NODE_VERSION', value: process.env.NODE_VERSION },
+  { name: 'NODE_ENV', value: process.env.NODE_ENV },
+  { name: 'NETLIFY', value: process.env.NETLIFY },
+  { name: 'BUILD_ID', value: process.env.BUILD_ID },
+  { name: 'CONTEXT', value: process.env.CONTEXT },
+  { name: 'NETLIFY_PREVIEW_SERVER', value: process.env.NETLIFY_PREVIEW_SERVER },
+  { external: true, href: process.env.REPOSITORY_URL, name: 'REPOSITORY_URL', value: process.env.REPOSITORY_URL },
+  { name: 'BRANCH', value: process.env.BRANCH },
+  { name: 'HEAD', value: process.env.HEAD },
+  { name: 'COMMIT_REF', value: process.env.COMMIT_REF },
+  { name: 'CACHED_COMMIT_REF', value: process.env.CACHED_COMMIT_REF },
+  { name: 'PULL_REQUEST', value: process.env.PULL_REQUEST },
+  { name: 'REVIEW_ID', value: process.env.REVIEW_ID },
+  { href: process.env.URL, name: 'URL', value: process.env.URL },
+  { href: process.env.DEPLOY_URL, name: 'DEPLOY_URL', value: process.env.DEPLOY_URL },
+  { href: process.env.DEPLOY_PRIME_URL, name: 'DEPLOY_PRIME_URL', value: process.env.DEPLOY_PRIME_URL },
+  { name: 'DEPLOY_ID', value: process.env.DEPLOY_ID },
+  { name: 'SITE_NAME', value: process.env.SITE_NAME },
+  { name: 'SITE_ID', value: process.env.SITE_ID },
+  { name: 'ACCOUNT_ID', value: process.env.ACCOUNT_ID },
+  { name: 'INCOMING_HOOK_TITLE', value: process.env.INCOMING_HOOK_TITLE },
+  { href: process.env.INCOMING_HOOK_URL, name: 'INCOMING_HOOK_URL', value: process.env.INCOMING_HOOK_URL },
+  { name: 'INCOMING_HOOK_BODY', value: process.env.INCOMING_HOOK_BODY },
+]
 ---
 
 <html lang="en">
@@ -23,98 +49,12 @@ import './index.css'
     </h1>
   </caption>
   <tbody>
-    <tr>
-      <th>NODE_VERSION</th>
-      <td>{process.env.NODE_VERSION}</td>
-    </tr>
-    <tr>
-      <th>NODE_ENV</th>
-      <td>{process.env.NODE_ENV}</td>
-    </tr>
-    <tr>
-      <th>NETLIFY</th>
-      <td>{process.env.NETLIFY}</td>
-    </tr>
-    <tr>
-      <th>BUILD_ID</th>
-      <td>{process.env.BUILD_ID}</td>
-    </tr>
-    <tr>
-      <th>CONTEXT</th>
-      <td>{process.env.CONTEXT}</td>
-    </tr>
-    <tr>
-      <th>NETLIFY_PREVIEW_SERVER</th>
-      <td>{process.env.NETLIFY_PREVIEW_SERVER}</td>
-    </tr>
-    <tr>
-      <th>REPOSITORY_URL</th>
-      <td>{process.env.REPOSITORY_URL}</td>
-    </tr>
-    <tr>
-      <th>BRANCH</th>
-      <td>{process.env.BRANCH}</td>
-    </tr>
-    <tr>
-      <th>HEAD</th>
-      <td>{process.env.HEAD}</td>
-    </tr>
-    <tr>
-      <th>COMMIT_REF</th>
-      <td>{process.env.COMMIT_REF}</td>
-    </tr>
-    <tr>
-      <th>CACHED_COMMIT_REF</th>
-      <td>{process.env.CACHED_COMMIT_REF}</td>
-    </tr>
-    <tr>
-      <th>PULL_REQUEST</th>
-      <td>{process.env.PULL_REQUEST}</td>
-    </tr>
-    <tr>
-      <th>REVIEW_ID</th>
-      <td>{process.env.REVIEW_ID}</td>
-    </tr>
-    <tr>
-      <th>URL</th>
-      <td>{process.env.URL}</td>
-    </tr>
-    <tr>
-      <th>DEPLOY_URL</th>
-      <td>{process.env.DEPLOY_URL}</td>
-    </tr>
-    <tr>
-      <th>DEPLOY_PRIME_URL</th>
-      <td>{process.env.DEPLOY_PRIME_URL}</td>
-    </tr>
-    <tr>
-      <th>DEPLOY_ID</th>
-      <td>{process.env.DEPLOY_ID}</td>
-    </tr>
-    <tr>
-      <th>SITE_NAME</th>
-      <td>{process.env.SITE_NAME}</td>
-    </tr>
-    <tr>
-      <th>SITE_ID</th>
-      <td>{process.env.SITE_ID}</td>
-    </tr>
-    <tr>
-      <th>ACCOUNT_ID</th>
-      <td>{process.env.ACCOUNT_ID}</td>
-    </tr>
-    <tr>
-      <th>INCOMING_HOOK_TITLE</th>
-      <td>{process.env.INCOMING_HOOK_TITLE}</td>
-    </tr>
-    <tr>
-      <th>INCOMING_HOOK_URL</th>
-      <td>{process.env.INCOMING_HOOK_URL}</td>
-    </tr>
-    <tr>
-      <th>INCOMING_HOOK_BODY</th>
-      <td>{process.env.INCOMING_HOOK_BODY}</td>
-    </tr>
+    {ENV.map((env) => (
+      <tr>
+        <th>{env.name}</th>
+        <td>{env.href ? <a href={env.href} target={env.external ? '_blank' : undefined}>{env.value}</a> : env.value}</td>
+      </tr>
+    ))}
   </tbody>
   <tfoot>
     <tr>
