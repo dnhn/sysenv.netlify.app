@@ -20,7 +20,7 @@ const ENV = [
   { href: process.env.DEPLOY_PRIME_URL, name: 'DEPLOY_PRIME_URL', value: process.env.DEPLOY_PRIME_URL },
   { external: true, href: `https://app.netlify.com/projects/${process.env.SITE_NAME}/deploys/${process.env.DEPLOY_ID}`, name: 'DEPLOY_ID', value: process.env.DEPLOY_ID },
   { external: true, href: `https://app.netlify.com/projects/${process.env.SITE_NAME}/deploys`, name: 'SITE_NAME', value: process.env.SITE_NAME },
-  { name: 'SITE_ID', value: process.env.SITE_ID },
+  { external: true, href: `https://app.netlify.com/projects/${process.env.SITE_ID}/deploys`, name: 'SITE_ID', value: process.env.SITE_ID },
   { name: 'ACCOUNT_ID', value: process.env.ACCOUNT_ID },
   { name: 'INCOMING_HOOK_TITLE', value: process.env.INCOMING_HOOK_TITLE },
   { external: true, href: process.env.INCOMING_HOOK_URL, name: 'INCOMING_HOOK_URL', value: process.env.INCOMING_HOOK_URL },
